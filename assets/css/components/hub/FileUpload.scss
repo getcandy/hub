@@ -1,0 +1,34 @@
+
+      // uppy-Root
+      // uppy-u-reset
+      // uppy-DragDrop-container
+      // uppy-DragDrop--is-dragdrop-supported
+
+
+// require()
+// require()
+
+@import '@uppy/core/dist/style.css';
+@import '@uppy/drag-drop/dist/style.css';
+
+.uppy-DragDrop-container {
+  // height: 100%;
+}
+
+.uppy-DragDrop {
+  &-container {
+    background: transparent;
+  }
+  &--is-dragdrop-supported {
+    border:none;
+    border-radius: 0;
+  }
+}
+
+
+.uppy-DragDrop-inner {
+  font-size:.875em;
+  svg {
+    display:none;
+  }
+}

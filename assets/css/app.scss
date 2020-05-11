@@ -1,0 +1,21 @@
+// Import Bulma's core
+@import "~bulma/sass/utilities/_all";
+@import '~bulma-timeline';
+@import '~bulma-quickview';
+
+// Custom Bulma Styles
+@import "./fonts.scss";
+@import "./bulma.scss";
+@import "./utils.scss";
+
+// Import Bulma and Buefy styles
+@import "~bulma";
+@import "~buefy/src/scss/buefy";
+
+@import "./mixins.scss";
+@import "./layouts.scss";
+@import "./buttons.scss";
+@import "./form_elements.scss";
+@import "./components.scss";
+@import "./tables.scss";
+@import "./tabs.scss";

@@ -1,0 +1,35 @@
+.quickview-header {
+  border:none;
+  padding:0 1.5rem;
+  h3 {
+    margin-bottom:0;
+    font-size:.875rem;
+    font-weight:$weight-semibold;
+  }
+}
+
+.quickview-overlay {
+  background:rgba(#111E33, .9);
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  z-index:30;
+}
+
+.quickview-body {
+  margin-top:1rem;
+  padding:0 1.5rem;
+  .field {
+    margin-bottom:1rem;
+    .control {
+      .select {
+        width:100%;
+        select {
+          width: inherit;
+        }
+      }
+    }
+  }
+}

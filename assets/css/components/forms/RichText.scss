@@ -1,0 +1,22 @@
+// ProseMirror
+
+.ProseMirror {
+  @apply .p-4;
+  @apply .border-gray-400;
+  @apply .border;
+  @apply .rounded-b;
+  &:focus {
+    @apply .outline-none;
+    @apply .border-blue-500;
+  }
+}
+.text-editor-control {
+  @apply .leading-none;
+  @apply .text-gray-600;
+  @apply .px-2;
+  @apply .py-1;
+  @apply .block;
+  :hover {
+    @apply .text-black;
+  }
+}

@@ -1,0 +1,113 @@
+// Custom Variables for Bulma
+
+$family-primary: 'Inter', sans-serif;
+
+
+// App Color Palette
+$color_primary: #6100C9;   	// Purple
+$color_secondary: #8D00BE;	// Pink
+$color_success: #40C12C;	// Green
+
+$block-spacing: 0;
+// Bulma Overrides
+$primary: $color_success;
+
+
+$colors: (
+    "white": ($white, $black),
+    "black": ($black, $white),
+    "light": ($light, $light-invert),
+    "dark": ($dark, $dark-invert),
+    "primary": ($primary, $primary-invert),
+    "info": ($info, $info-invert),
+    "success": ($success, $success-invert),
+    "warning": ($warning, $warning-invert),
+    "danger": ($danger, $danger-invert)
+);
+
+// Links
+$link: $color_primary;
+$link-invert: $primary-invert;
+$link-focus-border: $primary;
+
+$label-weight: $weight-medium;
+
+// Large Tabs
+.tabs.tabs-large {
+	background-color: #F4F5F8;
+  &--flush {
+    margin-bottom:0!important;
+  }
+	ul {
+		padding-left: 30px;
+		border: none;
+
+		li {
+			a {
+				color: #A1A3B9;
+				text-transform: uppercase;
+				font-size: 12px;
+				font-weight: bold;
+				padding: 30px 40px;
+				border-bottom-width: 0;
+
+				&:hover {
+					color: $color_primary;
+				}
+			}
+
+			&.is-active {
+				a {
+					color: $color_primary;
+					border-bottom-width: 3px;
+				}
+			}
+		}
+	}
+}
+
+.column.is-0p5 {
+  -webkit-box-flex: 0;
+  flex: none;
+  width: 4.33333%;
+}
+
+
+.padded {
+  padding: 3rem 4%;
+}
+
+.sub-section {
+  padding:2rem 0;
+  border-bottom: 1px solid #f5f5f5;
+  > .column {
+    margin-right:40px;
+  }
+  .subtitle {
+    font-size:.875em;
+    font-weight:600;
+  }
+  &__heading {
+    p {
+      font-size:.8em;
+      color: #71738B;
+    }
+  }
+}
+
+.spin {
+  animation: spin 1s infinite linear;
+}
+
+.spin-fast {
+  animation: spin .5s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

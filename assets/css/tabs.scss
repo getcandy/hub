@@ -1,0 +1,52 @@
+
+.secondary-tabs {
+  .tabs {
+    padding:0 30px;
+    font-size: $small-font-size;
+    background-color:#182C4B;
+    &.is-toggle {
+      li {
+        a {
+          border-radius:0;
+        }
+        &.is-active {
+          a {
+            border-radius:0;
+          }
+        }
+      }
+    }
+    ul {
+      border: none;
+      li {
+        &.is-active {
+          border-radius:0;
+          a {
+            background-color: white;
+            color: #252323;
+            &:hover {
+              background-color: white;
+            }
+          }
+        }
+        a {
+          border: none;
+          color: white;
+          padding:1em 20px;
+          &:hover {
+            background-color: darken(#F6F8FB, 2%);
+            color: #252323;
+          }
+        }
+      }
+    }
+  }
+  .tab-content {
+    background-color: white;
+  }
+}
+
+.tab-content-tools {
+  margin-bottom: 1em;
+  text-align:right;
+}

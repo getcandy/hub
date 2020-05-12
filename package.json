@@ -15,11 +15,10 @@
   "dependencies": {
     "getcandy-js-nuxt": "^1.0.0",
     "@getcandy/js-client": "^1.0.0",
-    "getcandy/hub-complete": "^1.0.0",
+    "@getcandy/hub-complete": "^1.0.0",
     "@nuxtjs/auth": "^4.8.4",
     "@nuxtjs/axios": "^5.8.0",
     "@nuxtjs/dotenv": "^1.4.1",
-    "apexcharts": "^3.15.3",
     "moment": "^2.24.0",
     "numeral": "^2.0.6",
     "nuxt": "^2.5.1",

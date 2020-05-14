@@ -13,9 +13,10 @@
     "test": "jest --watch"
   },
   "dependencies": {
-    "getcandy-js-nuxt": "^1.0.0",
+    "@getcandy/js-client-nuxt": "^1.0.0",
     "@getcandy/js-client": "^1.0.0",
-    "@getcandy/hub-complete": "^1.0.0",
+    "@getcandy/node-client": "^1.0.0",
+    "@getcandy/hub-core": "^1.0.0",
     "@nuxtjs/auth": "^4.8.4",
     "@nuxtjs/axios": "^5.8.0",
     "@nuxtjs/dotenv": "^1.4.1",

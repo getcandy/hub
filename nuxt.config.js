@@ -55,8 +55,9 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/auth',
-    'getcandy-js-nuxt',
-    // ['~/modules/core/module.js', GetCandyConfig]
+    ['@getcandy/js-client-nuxt', {
+      "host": process.env.API_HOST
+    }]
   ],
 
   router: {
@@ -109,6 +110,10 @@ export default {
   ** Build configuration
   */
   build: {
+    transpile: [
+      '@neondigital/vue-draggable-nested-tree',
+      '@getcandy/node-client',
+    ],
     extend(config, { isDev, isClient }) {
       config.resolve.alias["vue"] = "vue/dist/vue.common";
     }

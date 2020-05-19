@@ -23,6 +23,7 @@
     "@getcandy/hub-orders": "^1.0.0",
     "@getcandy/hub-reports": "^1.0.0",
     "@getcandy/hub-shipping": "^1.0.0",
+    "@getcandy/hub-customers": "^1.0.0",
     "@nuxtjs/auth": "^4.8.4",
     "@nuxtjs/axios": "^5.8.0",
     "@nuxtjs/dotenv": "^1.4.1",

@@ -46,8 +46,11 @@ export default {
     //  '@nuxtjs/eslint-module',
     '@nuxtjs/dotenv',
     '@nuxtjs/tailwindcss',
-    '@getcandyhub/complete',
+    ['@getcandy/js-client-nuxt', {
+      "host": process.env.API_HOST
+    }]
   ],
+  
   /*
   ** Nuxt.js modules
   */
@@ -114,6 +117,14 @@ export default {
       '@neondigital/vue-draggable-nested-tree',
       '@getcandy/node-client',
     ],
+    postcss: {
+      preset: {
+        features: {
+          // Fixes: https://github.com/tailwindcss/tailwindcss/issues/1190#issuecomment-546621554
+          "focus-within-pseudo-class": false
+        }
+      }
+    },
     extend(config, { isDev, isClient }) {
       config.resolve.alias["vue"] = "vue/dist/vue.common";
     }

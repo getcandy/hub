@@ -99,7 +99,7 @@ export default {
   auth: {
     strategies: {
       proxy: {
-        _scheme: '@getcandyhub/core/src/modules/proxy-scheme.js',
+        _scheme: '@getcandy/hub-core/src/modules/proxy-scheme.js',
         endpoints: {
           login: { url: process.env.PROXY_LOGIN_ENDPOINT, method: 'post', propertyName: false },
           logout: false,

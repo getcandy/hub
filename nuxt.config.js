@@ -50,7 +50,7 @@ export default {
       "host": process.env.API_HOST
     }]
   ],
-  
+
   /*
   ** Nuxt.js modules
   */
@@ -58,9 +58,21 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/auth',
-    ['@getcandy/js-client-nuxt', {
-      "host": process.env.API_HOST
-    }]
+    ['@getcandy/hub-products', {
+      'preview_url': process.env.PRODUCT_PREVIEW_URL,
+      'enable_variant_options': false
+    }],
+    ['@getcandy/hub-categories', {
+      'preview_url': process.env.CATEGORY_PREVIEW_URL
+    }],
+    ['@getcandy/hub-collections', {
+      'preview_url': process.env.COLLECTION_PREVIEW_URL
+    }],
+    '@getcandy/hub-orders',
+    '@getcandy/hub-customers',
+    '@getcandy/hub-shipping',
+    '@getcandy/hub-reports',
+    '@getcandy/hub-core'
   ],
 
   router: {

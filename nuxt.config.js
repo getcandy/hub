@@ -72,7 +72,9 @@ export default {
     '@getcandy/hub-customers',
     '@getcandy/hub-shipping',
     '@getcandy/hub-reports',
-    '@getcandy/hub-core'
+    ['@getcandy/hub-core', {
+      auth: 'sanctum'
+    }]
   ],
 
   router: {
@@ -85,6 +87,7 @@ export default {
   */
   axios: {
     baseURL: process.env.API_BASE,
+    credentials: true,
     headers: {
       common: {
         'X-CANDY-HUB': true
@@ -98,17 +101,31 @@ export default {
    */
   auth: {
     strategies: {
-      proxy: {
-        _scheme: '@getcandy/hub-core/src/modules/proxy-scheme.js',
+      local: {
+        _scheme: '@getcandy/hub-core/src/modules/sanctum-scheme.js',
+        tokenRequired: false,
+        tokenType: false,
         endpoints: {
-          login: { url: process.env.PROXY_LOGIN_ENDPOINT, method: 'post', propertyName: false },
-          logout: false,
+          login: {
+            url: process.env.AUTH_LOGIN_ENDPOINT,
+            method: 'post',
+            withCredentials: true,
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Content-Type': 'application/json'
+            }
+          },
           user: {
-            url: process.env.PROXY_USER_ENDPOINT,
+            url: process.env.AUTH_USER_ENDPOINT,
             method: 'get',
             propertyName: 'data',
+            withCredentials: true,
             params: {
               includes: 'roles.permissions,details'
+            },
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Content-Type': 'application/json'
             }
           }
         }

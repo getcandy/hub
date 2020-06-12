@@ -7,6 +7,10 @@ var find = require('lodash/find')
 
 export default async function ({ app, store }) {
   const state = store.state
+
+  app.$gc.setHttp(app.$axios)
+  app.$getcandy.setHttp(app.$axios)
+
   if (store.$auth.user) {
     // If anything isn't loaded, load it all up.
     if (

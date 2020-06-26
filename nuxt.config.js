@@ -115,6 +115,15 @@ export default {
               'Content-Type': 'application/json'
             }
           },
+          logout: {
+            url: process.env.AUTH_LOGOUT_ENDPOINT,
+            method: 'post',
+            withCredentials: true,
+            headers: {
+              'X-Requested-With': 'XMLHttpRequest',
+              'Content-Type': 'application/json'
+            }
+          },
           user: {
             url: process.env.AUTH_USER_ENDPOINT,
             method: 'get',

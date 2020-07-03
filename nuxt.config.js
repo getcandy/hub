@@ -60,7 +60,7 @@ export default {
     '@nuxtjs/auth',
     ['@getcandy/hub-products', {
       'preview_url': process.env.PRODUCT_PREVIEW_URL,
-      'enable_variant_options': false
+      'allow_variant_options': true
     }],
     ['@getcandy/hub-categories', {
       'preview_url': process.env.CATEGORY_PREVIEW_URL

@@ -44,7 +44,8 @@ export default async function ({ app, store }) {
     }
 
     if (!state.core.customerGroups.length) {
-      const customerGroups = await app.$gc.customerGroups.get()
+      //   const customerGroups = await app.$gc.customerGroups.get()
+      const customerGroups = await app.$getcandy.on('CustomerGroups').getCustomerGroups()
       store.commit('setCustomerGroups', customerGroups.data.data)
     }
 

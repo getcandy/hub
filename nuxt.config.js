@@ -2,7 +2,7 @@ import GetCandyConfig from './getcandy.config'
 require('dotenv').config()
 
 export default {
-  mode: 'spa',
+  ssr: false,
 
   /*
   ** Headers of the page
@@ -130,7 +130,7 @@ export default {
             propertyName: 'data',
             withCredentials: true,
             params: {
-              includes: 'roles.permissions,details'
+              includes: 'roles.permissions,customer'
             },
             headers: {
               'X-Requested-With': 'XMLHttpRequest',

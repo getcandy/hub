@@ -9,7 +9,6 @@ export default async function ({ app, store }) {
   const state = store.state
 
   app.$gc.setHttp(app.$axios)
-  app.$getcandy.setHttp(app.$axios)
 
   if (store.$auth.user) {
     // If anything isn't loaded, load it all up.
@@ -45,7 +44,7 @@ export default async function ({ app, store }) {
 
     if (!state.core.customerGroups.length) {
       //   const customerGroups = await app.$gc.customerGroups.get()
-      const customerGroups = await app.$getcandy.on('CustomerGroups').getCustomerGroups()
+      const customerGroups = await app.$getcandy.on('customer-groups', 'getCustomerGroups')
       store.commit('setCustomerGroups', customerGroups.data.data)
     }
 

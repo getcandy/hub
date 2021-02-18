@@ -52,7 +52,8 @@ module.exports = {
       'nuxt.config.js',
       // TypeScript
       'plugins/**/*.ts',
-      'nuxt.config.ts'
+      'nuxt.config.ts',
+      './node_modules/@getcandy/**/src/**/*.vue'
     ]
   }
 }
@@ -71,6 +72,11 @@ At the top of `modules` include the new package..
     // ...
   ]
 ```
+
+Save this icon sprite under `static/icon-sprite.svg`
+[https://github.com/tabler/tabler-icons/blob/master/tabler-sprite.svg](https://github.com/tabler/tabler-icons/blob/master/tabler-sprite.svg)
+
+## Laravel Sanctum Users
 
 Replace `@nuxtjs/auth` with the updated Nuxt Auth module.
 
@@ -114,11 +120,6 @@ export default async function ({ store, route, redirect, $auth }) {
 }
 ```
 
-Save this icon sprite under `static/icon-sprite.svg`
-[https://github.com/tabler/tabler-icons/blob/master/tabler-sprite.svg](https://github.com/tabler/tabler-icons/blob/master/tabler-sprite.svg)
-
-### Laravel Sanctum users
-
 Update the auth section in your `nuxt.config.js` to:
 
 ```javascript
@@ -135,51 +136,13 @@ Update the auth section in your `nuxt.config.js` to:
   }
 ```
 
-### Laravel Passport users
-
-```javascript
-  auth: {
-    strategies: {
-      hub: {
-        provider: 'laravel/passport',
-        endpoints: {
-          user: { url: '/api/v1/users/current?include=customer.customerGroups,roles', method: 'get', propertyName: 'data' },
-          userInfo: { url: '/api/v1/users/current?include=customer.customerGroups,roles', method: 'get', propertyName: 'data' }
-        },
-        grantType: 'password',
-        url: process.env.API_HOST,
-        clientId: process.env.API_CLIENT_ID,
-        clientSecret: process.env.API_CLIENT_SECRET
-      }
-    }
-  },
-```
-
-Add the variables above to your `.env` file
-
-```
-API_HOST=http://laravel-api.test
-API_CLIENT_ID={LARAVEL_PASSPORT_CLIENT_ID}
-API_CLIENT_SECRET={LAVEL_PASSPORT_CLIENT_SECRET}
-```
-
-#### API Changes (Passport users only)
-
-In your login logic, replace `email` with `username`.
-
-```php
-Auth::attempt([
-  'email' => $request->username,
-  'password' => $request->password
-])
-```
-
 ### 🐞 Fixes
 - Fixed an issue where the account section wouldn't load
 - Fixed an issue where `formErrors` would return undefined, causing some pages to crash.
 - Search has been fixed on products page
 - Fixed an issue where media uploads would not trigger and then be added to a draft.
 - Fixed an issue which stopped the attribute groups page from loading
+- Fixed an issue that prevented a user from updating their password on their account
 
 ### ⭐ Improvements
 

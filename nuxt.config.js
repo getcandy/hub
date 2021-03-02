@@ -114,6 +114,9 @@ export default {
   generate: {
     fallback: true
   },
+  tailwindcss: {
+    exposeConfig: true,
+  },
   /*
   ** Build configuration
   */

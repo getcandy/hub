@@ -1,6 +1,6 @@
 // import HubUser from '@getcandy/hub-core/src/modules/HubUser.js'
 
-// export default async function ({ store, route, redirect, $auth }) {
+export default async function ({ store, route, redirect, $auth }) {
 //   if (!$auth.user) {
 //     await $auth.logout()
 //   }
@@ -19,4 +19,4 @@
 //       await $auth.logout
 //     }
 //   }
-// }
+}

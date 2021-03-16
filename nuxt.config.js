@@ -104,7 +104,7 @@ export default {
         provider: 'laravel/sanctum',
         url: `http://localhost:8000/api`,
         endpoints: {
-          user: { url: '/v1/users/current?include=customer.customerGroups,roles', method: 'get', propertyName: 'data' }
+          user: { url: '/v1/users/current?include=customer.customerGroups,roles.permissions', method: 'get', propertyName: 'data' }
         }
       }
     }

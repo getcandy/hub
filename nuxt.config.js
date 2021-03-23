@@ -46,18 +46,16 @@ export default {
     //  '@nuxtjs/eslint-module',
     '@nuxtjs/dotenv',
     '@nuxtjs/tailwindcss',
-    ['@getcandy/js-client-nuxt', {
-      "host": process.env.API_HOST
-    }]
   ],
 
   /*
   ** Nuxt.js modules
   */
   modules: [
+    '@getcandy/nuxt-client',
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/auth',
+    '@nuxtjs/auth-next',
     ['@getcandy/hub-products', {
       'preview_url': process.env.PRODUCT_PREVIEW_URL,
       'allow_variant_options': true
@@ -100,43 +98,13 @@ export default {
    * See https://auth.nuxtjs.org
    */
   auth: {
+    plugins: [ '~/plugins/acl.js' ],
     strategies: {
-      local: {
-        _scheme: '@getcandy/hub-core/src/modules/sanctum-scheme.js',
-        tokenRequired: false,
-        tokenType: false,
+      hub: {
+        provider: 'laravel/sanctum',
+        url: `http://localhost:8000/api`,
         endpoints: {
-          login: {
-            url: process.env.AUTH_LOGIN_ENDPOINT,
-            method: 'post',
-            withCredentials: true,
-            headers: {
-              'X-Requested-With': 'XMLHttpRequest',
-              'Content-Type': 'application/json'
-            }
-          },
-          logout: {
-            url: process.env.AUTH_LOGOUT_ENDPOINT,
-            method: 'post',
-            withCredentials: true,
-            headers: {
-              'X-Requested-With': 'XMLHttpRequest',
-              'Content-Type': 'application/json'
-            }
-          },
-          user: {
-            url: process.env.AUTH_USER_ENDPOINT,
-            method: 'get',
-            propertyName: 'data',
-            withCredentials: true,
-            params: {
-              includes: 'roles.permissions,customer'
-            },
-            headers: {
-              'X-Requested-With': 'XMLHttpRequest',
-              'Content-Type': 'application/json'
-            }
-          }
+          user: { url: '/v1/users/current?include=customer.customerGroups,roles.permissions', method: 'get', propertyName: 'data' }
         }
       }
     }
@@ -146,6 +114,9 @@ export default {
   },
   generate: {
     fallback: true
+  },
+  tailwindcss: {
+    exposeConfig: true,
   },
   /*
   ** Build configuration

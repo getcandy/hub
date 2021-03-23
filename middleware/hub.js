@@ -28,7 +28,7 @@ export default async function ({ app, store }) {
 
     if (!state.core.languages.length) {
       const languages = await app.$gc.languages.get()
-      store.commit('setLocale', find(languages.data.data, l => l.default).lang)
+      store.commit('setLocale', find(languages.data.data, l => l.default).code)
       store.commit('setLanguages', languages.data.data)
     }
 

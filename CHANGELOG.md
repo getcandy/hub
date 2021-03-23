@@ -13,6 +13,12 @@ Remove
   app.$getcandy.setHttp(app.$axios)
 ```
 
+Replace line `31` with:
+```
+--- store.commit('setLocale', find(languages.data.data, l => l.default).lang)
++++ store.commit('setLocale', find(languages.data.data, l => l.default).code)
+```
+
 Replace line `47` with:
 
 ```

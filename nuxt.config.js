@@ -102,7 +102,7 @@ export default {
     strategies: {
       hub: {
         provider: 'laravel/sanctum',
-        url: `http://localhost:8000/api`,
+        url: process.env.SANCTUM_URL,
         endpoints: {
           user: { url: '/v1/users/current?include=customer.customerGroups,roles.permissions', method: 'get', propertyName: 'data' }
         }

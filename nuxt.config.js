@@ -58,6 +58,7 @@ export default {
     '@nuxtjs/auth-next',
     ['@getcandy/hub-products', {
       'preview_url': process.env.PRODUCT_PREVIEW_URL,
+      'live_url': process.env.PRODUCT_LIVE_URL,
       'allow_variant_options': true
     }],
     ['@getcandy/hub-categories', {
